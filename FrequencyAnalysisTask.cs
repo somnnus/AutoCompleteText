@@ -62,6 +62,12 @@ namespace TextAnalysis
 
                 }
             }
+            for(int i = 0; i < dict.Count; i++)
+            {
+                
+              
+
+            }
 
             //...
             return result;
