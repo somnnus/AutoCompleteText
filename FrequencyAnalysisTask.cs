@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace TextAnalysis
 {
@@ -62,12 +63,16 @@ namespace TextAnalysis
 
                 }
             }
-            for(int i = 0; i < dict.Count; i++)
+            foreach(var twoThreegramm in dict)
             {
-                
-              
+                var newKey = twoThreegramm.Key;
+                Dictionary<string,int> newValue = twoThreegramm.Value;
+                var res = newValue.OrderByDescending(pair => pair.Value).ToDictionary(pair => pair.Key, pair => pair.Value);
+                var first = res.First();
+                result.Add(newKey, first.Key);
 
             }
+            
 
             //...
             return result;
