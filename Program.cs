@@ -14,22 +14,22 @@ namespace TextAnalysis
             // Все непрошедшие тесты 
             var testsToRun = new string[]
             {
-                "TextAnalysis.SentencesParser_Tests",
-                "TextAnalysis.FrequencyAnalysis_Tests",
+                //"TextAnalysis.SentencesParser_Tests",
+                //"TextAnalysis.FrequencyAnalysis_Tests",
                 "TextAnalysis.TextGenerator_Tests",
             };
-            new AutoRun().Execute(new[]
-            {
-                "--stoponerror", // Останавливать после первого же непрошедшего теста. Закомментируйте, чтобы увидеть все падающие тесты
-                "--noresult",
-                "--test=" + string.Join(",", testsToRun)
-            });
+            //new AutoRun().Execute(new[]
+            //{
+            //    "--stoponerror", // Останавливать после первого же непрошедшего теста. Закомментируйте, чтобы увидеть все падающие тесты
+            //    "--noresult",
+            //    "--test=" + string.Join(",", testsToRun)
+            //});
 
             var text = File.ReadAllText("HarryPotterText.txt");
             var sentences = SentencesParserTask.ParseSentences(text);
             var frequency = FrequencyAnalysisTask.GetMostFrequentNextWords(sentences);
             //Расскомментируйте этот блок, если хотите выполнить последнюю задачу до первых двух.
-            /*
+
             frequency = new Dictionary<string, string>
             {
                 {"harry", "potter"},
@@ -43,7 +43,7 @@ namespace TextAnalysis
                 {"ron", "likes" },
                 {"wizard", "harry" },
             };
-            */
+
             while (true)
             {
                 Console.Write("Введите первое слово (например, harry): ");
