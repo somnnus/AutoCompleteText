@@ -80,23 +80,20 @@ namespace TextAnalysis
                     }
                 }
 
-                    string word = list[0];
-                    foreach (var item in list)
+                string word = list[0];
+                foreach (var item in list)
+                {
+                    if (string.CompareOrdinal(word, item) < 0)
                     {
-                        if (string.CompareOrdinal(word, item) < 0)
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            word = item;
-                        }
+                        continue;
                     }
-                    result.Add(newKey, word);
-                
-
+                    else
+                    {
+                        word = item;
+                    }
+                }
+                result.Add(newKey, word);
             }
-
             
             return result;
         }

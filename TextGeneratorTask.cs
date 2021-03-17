@@ -5,32 +5,47 @@ namespace TextAnalysis
 {
     static class TextGeneratorTask
     {
-        public static string ContinuePhrase(
-            Dictionary<string, string> nextWords,
-            string phraseBeginning,
-            int wordsCount)
+        public static string ContinuePhrase(Dictionary<string, string> nextWords, string phraseBeginning, int wordsCount)
         {
-            var parsedPhraseBeginning = phraseBeginning.Split(' ');
-            int n = parsedPhraseBeginning.Length;
-            if (n >= 2)
+            int i = 0;
+            bool phraseFilled = true; //идентификатор того, что фраза заполняется
+            while (phraseFilled && i < wordsCount)
             {
-                var phraseEnd = (from item in nextWords where item.Key == (parsedPhraseBeginning[n - 2] + " " + parsedPhraseBeginning[n - 1]) select item.Value).FirstOrDefault();
-                if (phraseEnd != null)
+                var parsedPhraseBeginning = phraseBeginning.Split(' ');
+                int n = parsedPhraseBeginning.Length;
+                if (n >= 2)
                 {
-                    phraseBeginning += " " + phraseEnd;
+                    var phraseEnd = (from item in nextWords where item.Key == (parsedPhraseBeginning[n - 2] + " " + parsedPhraseBeginning[n - 1]) select item.Value).FirstOrDefault();
+                    if (phraseEnd != null)
+                    {
+                        phraseBeginning += " " + phraseEnd;
+                        i++;
+                    }
+                    else
+                    {
+                        phraseEnd = (from item in nextWords where item.Key == parsedPhraseBeginning[n - 1] select item.Value).FirstOrDefault();
+                        if (phraseEnd != null)
+                        {
+                            phraseBeginning += " " + phraseEnd;
+                            i++;
+                        }
+                        else
+                            phraseFilled = false;
+                    }
+                }
+                else
+                if (n == 1)
+                {
+                    var phraseEnd = (from item in nextWords where item.Key == parsedPhraseBeginning[n - 1] select item.Value).FirstOrDefault();
+                    if (phraseEnd != null)
+                    {
+                        phraseBeginning += " " + phraseEnd;
+                        i++;
+                    }
+                    else
+                        phraseFilled = false;
                 }
             }
-            else
-            if (n == 1)
-            {
-                var phraseEnd = (from item in nextWords where item.Key == parsedPhraseBeginning[n - 1] select item.Value).FirstOrDefault();
-                if (phraseEnd != null)
-                {
-                    phraseBeginning += " " + phraseEnd;
-                }
-            }
-            else return "";
-
             return phraseBeginning;
         }
     }
