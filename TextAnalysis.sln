@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextAnalysis", "TextAnalysi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsForms", "C:\Users\Kuznetsov6\source\repos\WindowsForms\WindowsForms.csproj", "{FC581E20-6F44-47D2-BB05-464FBBA95ADE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFTextAutoComplete", "WFTextAutoComplete\WFTextAutoComplete.csproj", "{06C6DC18-EE08-48EC-BC30-78C4F7BE01B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FC581E20-6F44-47D2-BB05-464FBBA95ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC581E20-6F44-47D2-BB05-464FBBA95ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC581E20-6F44-47D2-BB05-464FBBA95ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C6DC18-EE08-48EC-BC30-78C4F7BE01B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C6DC18-EE08-48EC-BC30-78C4F7BE01B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C6DC18-EE08-48EC-BC30-78C4F7BE01B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C6DC18-EE08-48EC-BC30-78C4F7BE01B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,7 +2,7 @@
 
 namespace TextAnalysis
 {
-    static class SentencesParserTask
+    public static class SentencesParserTask
     {
         public static List<List<string>> ParseSentences(string text)
         {
