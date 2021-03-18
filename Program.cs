@@ -54,6 +54,7 @@ namespace TextAnalysis
                 var phrase = TextGeneratorTask.ContinuePhrase(frequency, beginning.ToLower(), 10);
                 Console.WriteLine(phrase);
             }
+
         }
     }
 }
