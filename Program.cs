@@ -15,12 +15,16 @@ namespace TextAnalysis
             var testsToRun = new string[]
             {
                 "TextAnalysis.SentencesParser_Tests",
+
+                "TextAnalysis.FrequencyAnalysis_Tests",
+                "TextAnalysis.TextGenerator_Tests",
                 //"TextAnalysis.FrequencyAnalysis_Tests",
                 //"TextAnalysis.TextGenerator_Tests",
+
             };
             new AutoRun().Execute(new[]
             {
-                //"--stoponerror", // Останавливать после первого же непрошедшего теста. Закомментируйте, чтобы увидеть все падающие тесты
+                "--stoponerror", // Останавливать после первого же непрошедшего теста. Закомментируйте, чтобы увидеть все падающие тесты
                 "--noresult",
                 "--test=" + string.Join(",", testsToRun)
             });
@@ -30,21 +34,23 @@ namespace TextAnalysis
             var frequency = FrequencyAnalysisTask.GetMostFrequentNextWords(sentences);
 
             Console.ReadKey();
-            //Расскомментируйте этот блок, если хотите выполнить последнюю задачу до первых двух.
 
-            //frequency = new Dictionary<string, string>
-            //{
-            //    {"harry", "potter"},
-            //    {"potter", "boy" },
-            //    {"boy", "who" },
-            //    {"who", "likes" },
-            //    {"boy who", "survived" },
-            //    {"survived", "attack" },
-            //    {"he", "likes" },
-            //    {"likes", "harry" },
-            //    {"ron", "likes" },
-            //    {"wizard", "harry" },
-            //};
+
+
+            frequency = new Dictionary<string, string>
+            {
+                {"harry", "potter"},
+                {"potter", "boy" },
+                {"boy", "who" },
+                {"who", "likes" },
+                {"boy who", "survived" },
+                {"survived", "attack" },
+                {"he", "likes" },
+                {"likes", "harry" },
+                {"ron", "likes" },
+                {"wizard", "harry" },
+            };
+
 
             while (true)
             {
